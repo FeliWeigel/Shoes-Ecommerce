@@ -1,0 +1,195 @@
+.home {
+    width: 1400px;
+    height: auto;
+    z-index: -10;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+    gap: 13rem;
+    height: 125vh;
+    background-image: url(../assets/images/bg1.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header-texts {
+    text-align: center;
+    color: white;
+    border-radius: 40px;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.792);
+    border: 1px solid rgb(186, 186, 186);
+    animation-name: slide-right;
+    animation-duration: 1s;
+}
+
+.header-texts h2 {
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+    font-size: 2rem;
+}
+
+.header-texts h4 {
+    color: rgba(255, 255, 255, 0.47);
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.header-button {
+    cursor: pointer;
+    transition: all .4s;
+    background-color: white;
+    border-radius: 40px;
+    transition: all .4s;
+}
+
+.header-button:hover {
+    transform: translateY(-.2rem);
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.263);
+}
+
+.header-button img {
+    width: 43px;
+    padding: 0px 4px;
+}
+
+.header-img {
+    width: 420px;
+    animation-name: slide-left;
+    animation-duration: 1s;
+}
+
+.card-bottom {
+    width: 80%;
+    height: 20px;
+    text-align: center;
+}
+
+.header-image {
+    border-radius: 87px;
+    width: 215px;
+    height: 285px;
+}
+
+.bar {
+    width: 400px;
+    height: 1.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.311);
+}
+
+.collections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+    background-color: transparent;
+}
+
+.collections h3 {
+    font-size: 1.7rem;
+    margin-bottom: .4rem;
+}
+
+.collections-bar {
+    width: 140px;
+    border-color: rgba(0, 0, 0, 0.47);
+}
+
+.collections-content {
+    display: flex;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.collections-card {
+    position: relative;
+    padding: 1.5rem 2rem 2rem 2rem;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.388);
+    transition: all .4s;
+}
+
+.collections-card:hover {
+    transform: scale(1.02);
+}
+
+.collections-card h4 {
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 500;
+    left: -1.5rem;
+    background-color: rgba(0, 0, 0, 0.904);
+    border-radius: 15px;
+    color: white;
+    padding: 5px 10px;
+}
+
+.collections-card img {
+    width: 220px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.collections-card h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.collections-card h5 span {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.collections-card p {
+    font-size: 1.1rem;
+    margin-bottom: .7rem;
+}
+
+.collections-card button {
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all .4s;
+}
+
+.collections-card button:hover {
+    transform: translateX(.4rem);
+}
+
+.card-btn-logo {
+    font-size: 1.7rem;
+}
+
+@keyframes slide-bot {
+    from{
+        margin-top: -40px;
+    }to{
+        margin-top: 0;
+    }
+}
+
+@keyframes slide-right {
+    from{
+        margin-right: 200px;
+    }to{
+        margin-right: 0px;
+    }
+}
+
+
+@keyframes slide-left {
+    from{
+        margin-left: 200px;
+    }to{
+        margin-left: 0px;
+    }
+}
+
+
