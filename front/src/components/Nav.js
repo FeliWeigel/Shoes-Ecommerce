@@ -9,10 +9,10 @@ export default class Nav extends React.Component{
             <nav className="nav container">
                 <img src={logo} alt="" />
                 <ul>
-                    <li className="nav-link">Home</li>
-                    <li className="nav-link">About</li>
-                    <li className="nav-link">Product</li>
-                    <li className="nav-link">Testimonials</li>
+                    <Link to="/"><li className="nav-link">Home</li></Link>
+                    <Link to="/about"><li className="nav-link">About</li></Link>
+                    <Link to="/products"><li className="nav-link">Product</li></Link>
+                    <Link to="/testimonials"><li className="nav-link">Testimonials</li></Link>
                 </ul>
                 <Link to="/"><i className='bx bx-cart nav-cart'></i></Link>
             </nav>

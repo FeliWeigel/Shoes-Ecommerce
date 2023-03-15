@@ -35,7 +35,7 @@ export default class RegisterCom extends React.Component {
     }
 
     handleButton = () => {
-        const url = apiUrlBase + "auth/register";
+        const url = apiUrlBase + "v1/auth/register";
         axios.post(url, this.state.form)
         .then(res => {
             if(res.data !== "fail"){

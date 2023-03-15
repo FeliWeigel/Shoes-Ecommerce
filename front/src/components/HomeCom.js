@@ -16,7 +16,7 @@ export default class HomeCom extends React.Component{
                         <h2>Sneakers</h2>
                         <div className="bar"></div>
                         <h4>Find unique sneaker collections just one click away</h4>
-                        <button className="header-button"><img src={home2} alt="error"/></button>
+                        <Link to="/products"><button className="header-button"><img src={home2} alt="error"/></button></Link>
                     </div>
 
                     <img src={home1} alt="error" className="header-img" />

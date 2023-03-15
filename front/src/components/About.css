@@ -1,0 +1,121 @@
+.about {
+    height: 100vh;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    gap: 8rem;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.84);
+}
+
+.texts {
+    color: white;
+    width: 554px;
+}
+
+.texts h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.9rem;
+    letter-spacing: .2rem;
+    margin-bottom: .2rem;
+    animation-name: slide-right;
+    animation-duration: 1s;
+}
+
+.texts h4 {
+    color: rgba(255, 255, 255, 0.813);
+    margin-bottom: .5rem;
+    font-size: 1.07rem;
+    animation-name: slide-left;
+    animation-duration: 1s;
+}
+
+.texts p {
+    color: rgba(255, 255, 255, 0.466);
+}
+
+.illustrations {
+    position: relative;
+}
+
+.illustrations img{
+    width: 370px;
+    animation-name: slide-top;
+    animation-duration: 1s;
+    transition: all .4s;
+}
+
+.illustrations img:hover {
+    transform: scale(1.02);
+}
+
+.about-bar {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+
+.bar-left {
+    border-left: 1.5px solid white;
+    border-bottom: 1.5px solid white;
+    left: -2rem;
+    bottom: -2rem; 
+}
+
+.bar-right {
+    border-right: 1.5px solid white;
+    border-top: 1.5px solid white;
+    top: -2rem;
+    right: -2rem;
+}
+
+.bar-left::before {
+    content: "";
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    border-bottom: 1.3px solid rgba(255, 255, 255, 0.37);
+    border-left: 1.3px solid rgba(255, 255, 255, 0.37);
+    left: -1rem;
+    bottom: -1rem;   
+}
+
+.bar-right::before {
+    content: "";
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    border-top: 1.3px solid rgba(255, 255, 255, 0.37);
+    border-right: 1.3px solid rgba(255, 255, 255, 0.37);
+    right: -1rem;
+    top: -1rem;   
+}
+
+@keyframes slide-right{
+    from{
+        margin-right: 50px;
+    }to{
+        margin-right: 0px;
+    }
+}
+
+@keyframes slide-left{
+    from{
+        margin-left: 20px;
+    }to{
+        margin-left: 0px;
+    }
+}
+
+@keyframes slide-top{
+    from{
+        margin-top: 70px;
+    }to{
+        margin-top: 0px;
+    }
+}

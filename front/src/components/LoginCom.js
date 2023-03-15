@@ -32,7 +32,7 @@ export default class LoginCom extends React.Component {
     }
 
     handleButton = () => {
-        const url = apiUrlBase + "auth/login";
+        const url = apiUrlBase + "v1/auth/login";
         axios.post(url, this.state.form)
         .then(res => {
             if(res.data.token !== null){
