@@ -5,7 +5,7 @@ import about1 from "../assets/images/about.jpg"
 
 export default function AboutCom(){
     return(
-        <div className="about container">
+        <div className="about">
             <Nav/>
             <div className="about-content">
                 <div className="illustrations">

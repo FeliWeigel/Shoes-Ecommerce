@@ -1,13 +1,12 @@
 package com.example.sneakers.controllers;
 
 import com.example.sneakers.entities.Product;
-import com.example.sneakers.service.IProductService;
-import com.example.sneakers.service.IUploadFileService;
+import com.example.sneakers.service.product.ProductService;
+import com.example.sneakers.service.product.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -24,10 +23,10 @@ import java.util.List;
 public class ProductController {
 
 	@Autowired
-	private IProductService productService;
+	private ProductService productService;
 
 	@Autowired
-	private IUploadFileService uploadFileService;
+	private UploadFileService uploadFileService;
 
 	@GetMapping
 	@CrossOrigin("http://localhost:3000")
@@ -36,18 +35,8 @@ public class ProductController {
 		return products;
 	}
 
-	/*@GetMapping
-	public String listProduct(Model model) {
-		try {
-			model.addAttribute("listProducts", productService.listAll());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "product/listProducts";
-	}*/
-
 	@GetMapping(value = "/uploads/{filename}")
-	public ResponseEntity<Resource> goImage(@PathVariable String filename) {
+	public ResponseEntity<Resource> productImage(@PathVariable String filename) {
 		Resource resource = null;
 		try {
 			resource = uploadFileService.load(filename);
@@ -60,10 +49,9 @@ public class ProductController {
 	}
 
 	@GetMapping("/new")
-	public String newProduct(Model model) {
+	public void newProduct(Model model) {
 		model.addAttribute("product", new Product());
 		model.addAttribute("listProducts", productService.listAll());
-		return "product/product";
 	}
 
 	@PostMapping("/save")
@@ -88,26 +76,25 @@ public class ProductController {
 	}
 
 	@RequestMapping("/update/{id}")
-	public String goUpdate(@PathVariable(value = "id") int id, Model model) {
+	public void productUpdate(@PathVariable(value = "id") int id, Model model) {
 		Product product = productService.listById(id);
 		model.addAttribute("product", product);
-		return "product/product";
 	}
 	
-	@RequestMapping("/detail/{id}")
-	public String goDetail(@PathVariable(value = "id") int id, Model model) {
+	@RequestMapping("/details/{id}")
+	@CrossOrigin("http://localhost:3000")
+	public Product productDetail(@PathVariable(value = "id") int id, Model model) {
 		Product product = productService.listById(id);
 		model.addAttribute("product", product);
-		return "product/productDetail";
+		return product;
 	}
 
 	@RequestMapping("/delete/{id}")
-	public String eliminar(@PathVariable(value = "id") int id, Model model) {
+	public void productDelete(@PathVariable(value = "id") int id, Model model) {
 		try {
 			productService.deleteById(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/product/product";
 	}
 }

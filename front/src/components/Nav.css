@@ -24,11 +24,15 @@
     transform: scale(1.03);
 }
 
-.nav-cart {
+.nav-cart, .nav-logout {
     font-size: 2rem;
     padding-right: 20px;
     color: black;
     transition: all .4s;
+}
+
+.nav-logout {
+    font-size: 1.85rem;
 }
 
 .nav-cart:hover {

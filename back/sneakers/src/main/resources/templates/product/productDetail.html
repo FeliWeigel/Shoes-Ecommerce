@@ -8,15 +8,15 @@
 		<div class="row mb-5">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4">
-				<form th:action="@{/api/products/save}" method="post" th:object="${meme}"
+				<form th:action="@{/api/products/save}" method="post" th:object="${product}"
 					enctype="multipart/form-data">
 					<div class="form-group">
 						<h5 class="mb-3">Detalle Product</h5>
 						<label
 							for="title">T&iacute;tulo:</label> <input type="text"
-							th:field="*{title}" class="form-control mb-2" id="title" required
+							th:field="*{name}" class="form-control mb-2" id="title" required
 							readonly></input> <label for="description">Descripci&oacute;n:</label>
-						<input type="text" th:field="*{description}"
+						<input type="text" th:field="*{collection}"
 							class="form-control mb-2" id="description" required readonly></input>
 						<label for="title">Imagen:</label> <br>
 							<img th:if="${product.image}"

@@ -9,8 +9,8 @@ export default function Collections(){
         <div className="collections container">
             <h3>The best brands and their best models</h3>
             <div className="bar collections-bar"></div>
-
             <div className="collections-content">
+
                 <div className="collections-card">
                     <h4>JORDAN RETRO 2</h4>
                     <img src={cardImg1} alt="error"/>

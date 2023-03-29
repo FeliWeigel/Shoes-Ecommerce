@@ -4,12 +4,15 @@ import "../index.css"
 import "./Home.css"
 import home1 from "../assets/images/home1.png"
 import home2 from "../assets/images/home2.png"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import Collections from "./Collections"
+import { getLoggedState } from "../services/authService"
 export default class HomeCom extends React.Component{
+    
     render(){
         return(
             <div className="home">
+                {getLoggedState() !== 'true' ? <Navigate to="/login"/> : null}
                 <Nav/>
                 <div className="header">
                     <div className="header-texts">

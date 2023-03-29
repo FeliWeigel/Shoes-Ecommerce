@@ -3,6 +3,7 @@ import React from "react"
 import { Link, Navigate } from "react-router-dom"
 import "../index.css"
 import { apiUrlBase } from "../services/apiUrlBase"
+import { setLoggedState } from "../services/authService"
 import Nav from "./Nav"
 import "./RegLogCom.css"
 export default class LoginCom extends React.Component {
@@ -12,6 +13,7 @@ export default class LoginCom extends React.Component {
             "email": "",
             "password": ""
         },
+        isLogged: false,
         error: false,
         errorMsg: ""
     }
@@ -37,18 +39,27 @@ export default class LoginCom extends React.Component {
         .then(res => {
             if(res.data.token !== null){
                 let token = res.data.token;
-                localStorage.setItem("token", token)
+                setLoggedState('true')
                 this.setState({
+                    isLogged: true,
                     error: false,
                     errorMsg: "You have succesfull logged!"
                 })
 
                 console.log(token)
+            }else{
+                setLoggedState('false')
+                this.setState({
+                    isLogged: false,
+                    error: true,
+                    errorMsg: "Invalid email or password, please try again."
+                })
             }
                
         }).catch(error => {
             console.log(error)
             this.setState({
+                isLogged: false,
                 error: true,
                 errorMsg: "Invalid email or password, please try again."
             })

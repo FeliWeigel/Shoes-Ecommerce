@@ -38,6 +38,7 @@
     color: rgba(255, 255, 255, 0.47);
     font-weight: 400;
     margin-bottom: 1rem;
+    text-transform: lowercase;
 }
 
 .header-button {
