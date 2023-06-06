@@ -12,6 +12,7 @@ export const addToCart = ({amountAdd, productAdd}) => {
             product: productAdd,
             amount: amountAdd
         }
+        console.log(userDetails.data)
         axios.post(addUrl, cartObject)
         .then(res => {
             console.log(res);

@@ -18,7 +18,7 @@ export default function Product({product}){
             <p>$ {product.price}</p>
             <div className="product-btns">
                 <button className="product-btn fav-btn"><i className='bx bx-heart product-btn-logo'></i></button>
-                <button onClick={addToCart({})} className="product-btn cart-btn"><i className='bx bxs-cart-add product-btn-logo'></i></button>
+                <button onClick={addToCart(1, product)} className="product-btn cart-btn"><i className='bx bxs-cart-add product-btn-logo'></i></button>
             </div>
         </div>
     )

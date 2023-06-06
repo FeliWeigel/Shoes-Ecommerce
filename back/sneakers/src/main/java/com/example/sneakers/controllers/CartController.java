@@ -24,7 +24,7 @@ public class CartController {
     @GetMapping()
     public ResponseEntity<List<Cart>> getListByClient(){
         Object userDetails =  SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal();
+                .getAuthentication();
         String userName = userDetails.getClass().getName();
         return new ResponseEntity<>(cartService.getListByName(userName), HttpStatus.OK);
     }

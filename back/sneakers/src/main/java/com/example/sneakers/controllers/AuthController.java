@@ -14,7 +14,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextHolderStrategy;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -44,19 +49,23 @@ public class AuthController {
             @RequestBody AuthenticationRequest authRequest,
             HttpServletResponse httpServletResponse
     ){
-        AuthenticationResponse authentication = (AuthenticationResponse) authService.authenticate(authRequest);
+        AuthenticationResponse authentication =  authService.authenticate(authRequest);
         CookieUtil.create(httpServletResponse, cookieName, authentication.getToken(), false, -1, "localhost");
+
         return new ResponseEntity<>(authentication, HttpStatus.OK);
+
     }
 
     @GetMapping("/user_details")
-    public ResponseEntity<User> getUserDetails(){
+    public ResponseEntity<Object> getUserDetails(){
 
-        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String userName = userDetails.getClass().getName();
-        Optional<User> user = userService.getUserByName(userName);
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication auth = context.getAuthentication();
+        User userDetails = (User) auth.getPrincipal();
+        String userEmail = userDetails.getUsername();
+        Optional<User> user = userService.getUserByEmail(userEmail);
         if(!user.isPresent()){
-            return null;
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(user.get(), HttpStatus.OK);

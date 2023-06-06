@@ -39,6 +39,7 @@ export default class LoginCom extends React.Component {
         .then(res => {
             if(res.data.token !== null){
                 let token = res.data.token;
+                localStorage.setItem('token', token)
                 setLoggedState('true')
                 this.setState({
                     isLogged: true,

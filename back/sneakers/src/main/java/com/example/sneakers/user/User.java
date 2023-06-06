@@ -23,7 +23,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue
     private Integer id;
-    private String name;
+    private String name = this.firstname;
     private String firstname;
     private String lastname;
     private String email;
@@ -67,7 +67,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setName(){
-        this.name = firstname;
-    }
 }
