@@ -1,5 +1,5 @@
 .home {
-    width: 1400px;
+    width: 100%;
     height: auto;
     z-index: -10;
 }
@@ -94,18 +94,18 @@
 
 .collections h3 {
     font-size: 1.7rem;
-    margin-bottom: .4rem;
+    margin-bottom: .3rem;
 }
 
 .collections-bar {
     width: 140px;
-    border-color: rgba(0, 0, 0, 0.47);
+    border-color: rgba(0, 0, 0, 0.30);
 }
 
 .collections-content {
     display: flex;
     gap: 4rem;
-    margin-top: 3rem;
+    margin-top: 1.7rem;
 }
 
 .collections-card {
